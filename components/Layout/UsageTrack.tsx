@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
 import { db } from "@/utils/db";
@@ -12,33 +12,43 @@ import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsage";
 export default function UsageTrack() {
   const { user } = useUser();
   const { totalUsage, setTotalUsage } = useContext(TotalUsageContext);
-  const { UpdateCreditUsage, setUpdateCreditUsage } = useContext(
-    UpdateCreditUsageContext
-  );
+  const { UpdateCreditUsage } = useContext(UpdateCreditUsageContext);
 
   const GetData = async () => {
-    const result: HistoryItem[] = await db
+    if (!user?.primaryEmailAddress?.emailAddress) {
+      return;
+    }
+
+    const result = await db
       .select()
       .from(AiOutput)
-      .where(eq(AiOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
-    getTotalUsage(result);
+      .where(eq(AiOutput.createdBy, user.primaryEmailAddress.emailAddress));
+
+    const historyItems: HistoryItem[] = result.map((item) => ({
+      ...item,
+      copyStatus: "idle",
+    }));
+
+    getTotalUsage(historyItems);
   };
+
   useEffect(() => {
-    user && GetData();
+    if (user) GetData();
   }, [UpdateCreditUsage]);
 
   useEffect(() => {
-    user && GetData();
+    if (user) GetData();
   }, [user]);
 
   const getTotalUsage = (result: HistoryItem[]) => {
     let total: number = 0;
     result.forEach((element) => {
-      total = total + Number(element.aiResponse?.length);
+      total += Number(element.aiResponse?.length || 0);
     });
     setTotalUsage(total);
     console.log(total);
   };
+
   return (
     <div className="m-5">
       <div className="bg-primary text-white rounded-lg p-3">
