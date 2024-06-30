@@ -131,4 +131,92 @@ export default [
       },
     ],
   },
+  {
+    name: "Code Snippet",
+    desc: "An AI tool that generates code snippets based on your input.",
+    category: "Coding",
+    icon: "https://cdn-icons-png.flaticon.com/128/6062/6062646.png",
+    aiPrompt:
+      "Generate a code snippet in the specified programming language based on the given description and requirements",
+    slug: "generate-code-snippet",
+    form: [
+      {
+        label: "Enter programming language",
+        field: "input",
+        name: "language",
+        required: true,
+      },
+      {
+        label: "Enter code requirements",
+        field: "textarea",
+        name: "requirements",
+      },
+    ],
+  },
+  {
+    name: "Function Documentation",
+    desc: "An AI tool that creates documentation for your code functions.",
+    category: "Coding",
+    icon: "https://cdn-icons-png.flaticon.com/128/2555/2555024.png",
+    aiPrompt:
+      "Generate documentation for the given code function in bullet points, including description, parameters, and return values",
+    slug: "generate-function-documentation",
+    form: [
+      {
+        label: "Enter code function",
+        field: "textarea",
+        name: "code",
+        required: true,
+      },
+      {
+        label: "Enter function description",
+        field: "textarea",
+        name: "description",
+      },
+    ],
+  },
+  {
+    name: "Story Plot",
+    desc: "An AI tool that generates story plots based on your input.",
+    category: "Writing",
+    icon: "https://cdn-icons-png.flaticon.com/128/1674/1674291.png",
+    aiPrompt:
+      "Generate a story plot in bullet points based on the given genre and key elements",
+    slug: "generate-story-plot",
+    form: [
+      {
+        label: "Enter story genre",
+        field: "input",
+        name: "genre",
+        required: true,
+      },
+      {
+        label: "Enter key elements",
+        field: "textarea",
+        name: "elements",
+      },
+    ],
+  },
+  {
+    name: "Character Description",
+    desc: "An AI tool that creates detailed character descriptions.",
+    category: "Writing",
+    icon: "https://cdn-icons-png.flaticon.com/128/1680/1680864.png",
+    aiPrompt:
+      "Generate a detailed character description in bullet points based on the given character traits and background",
+    slug: "generate-character-description",
+    form: [
+      {
+        label: "Enter character traits",
+        field: "textarea",
+        name: "traits",
+        required: true,
+      },
+      {
+        label: "Enter character background",
+        field: "textarea",
+        name: "background",
+      },
+    ],
+  },
 ];

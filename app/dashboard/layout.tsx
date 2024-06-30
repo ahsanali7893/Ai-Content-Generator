@@ -18,7 +18,7 @@ export default function layout({
         value={{ UpdateCreditUsage, setUpdateCreditUsage }}
       >
         <div className="min-h-screen">
-          <div className="md:w-64 hidden md:block fixed">
+          <div className="md:w-64 w-72 fixed">
             <SideBar />
           </div>
           <div className="md:ml-64">

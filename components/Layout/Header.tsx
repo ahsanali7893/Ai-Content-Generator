@@ -10,7 +10,7 @@ export default function Header() {
         <input type="text" placeholder="search..." className="outline-none" />
       </div>
       <div className="flex gap-5 items-center">
-        <h2 className="bg-primary rounded-full text-sm text-white px-2">
+        <h2 className="bg-primary rounded-full hidden sm:block  text-sm text-white px-2">
           🔥Join Membership for $1.99/Month
         </h2>
         <UserButton />
