@@ -33,7 +33,7 @@ export default function FormSection({
   };
 
   return (
-    <div className="p-5 shadow-lg border rounded-lg">
+    <div className="p-5 shadow-lg border rounded-lg w-full">
       {selectedTemplate?.icon && (
         <Image src={selectedTemplate.icon} alt="icon" width={70} height={70} />
       )}

@@ -87,7 +87,7 @@ export default function CreateContent({ params }: PROPS) {
           <ArrowLeft /> Back
         </Button>
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-10 py-5">
         <FormSection
           selectedTemplate={selectTemplate}
           userFormInput={GenerateAiContent}

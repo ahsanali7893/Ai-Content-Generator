@@ -33,6 +33,7 @@ export default function OutPutSection({ aiOutput }: PROPS) {
         initialEditType="wysiwyg"
         height="600px"
         useCommandShortcut={true}
+        isViewMode={true}
         onChange={() =>
           console.log(editorRef.current.getInstance().getMarkdown())
         }
